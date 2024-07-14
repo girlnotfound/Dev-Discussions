@@ -1,0 +1,21 @@
+{{#if loggedIn}}
+    {{> singlepost-details}}
+{{else}}
+    {{> login-details}}
+{{/if}}
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const newCommentButton = document.getElementById('newCommentBtn');
+        if (newCommentButton) {
+            newCommentButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                const commentForm = document.getElementById('commentForm');
+                if (commentForm) {
+                    commentForm.style.display = 'block';
+                }
+                newCommentButton.style.display = 'none';
+            });
+        }
+    });
+</script>
