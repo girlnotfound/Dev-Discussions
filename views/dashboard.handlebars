@@ -8,17 +8,4 @@
     console.log("loggedIn:", {{ loggedIn }});
 </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const newPostButton = document.getElementById('newPostBtn');
-        if (newPostButton) {
-            newPostButton.addEventListener('click', (event) => {
-                event.preventDefault();
-                const postForm = document.getElementById('postForm');
-                if (postForm) {
-                    postForm.style.display = 'block';
-                }
-            });
-        }
-    });
-</script>
+<script src="/js/form.js"></script>
