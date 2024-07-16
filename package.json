@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "seed": "node seeds/seed.js",
+    "start-all": "npm run seed && npm start"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
