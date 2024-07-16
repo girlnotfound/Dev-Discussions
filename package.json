@@ -4,8 +4,9 @@
   "description": "CMS-style blog site",
   "main": "server.js",
   "scripts": {
-    "start": "npm run seed && node server.js",
-    "seed": "node seeds/seed.js"
+    "start": "node server.js",
+    "seed": "node seeds/seed.js",
+    "start-all": "npm run seed && npm start"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
