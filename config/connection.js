@@ -27,13 +27,15 @@ if (process.env.DB_URL) {
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
-  {
-    dialect: 'postgres',
-    protocol: 'postgres',
-    logging: false,
-    dialectOptions: { ssl: { require: true, rejectUnauthorized: false } }
-  }
-);
+    {
+      host: process.env.DB_HOST || 'localhost', // Default to localhost if DB_HOST is not provided
+      port: process.env.DB_PORT || 5432, // Default PostgreSQL port
+      dialect: 'postgres',
+      protocol: 'postgres',
+      logging: false,
+      dialectOptions: { ssl: { require: true, rejectUnauthorized: false } }
+    }
+  );
 }
 
 module.exports = sequelize;
