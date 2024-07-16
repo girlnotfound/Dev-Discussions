@@ -28,7 +28,8 @@ if (process.env.DB_URL) {
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
-      host: 'localhost',
+      host: process.env.DB_HOST || 'localhost', // Default to localhost if DB_HOST is not provided
+      port: process.env.DB_PORT || 5432, // Default PostgreSQL port
       dialect: 'postgres',
     }
   );
