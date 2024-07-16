@@ -27,21 +27,13 @@ if (process.env.DB_URL) {
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
-    {
-      host: process.env.DB_HOST || 'localhost', // Default to localhost if DB_HOST is not provided
-      port: process.env.DB_PORT || 5432, // Default PostgreSQL port
-      dialect: 'postgres',
-    }
-  );
+  {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    logging: false,
+    dialectOptions: { ssl: { require: true, rejectUnauthorized: false } }
+  }
+);
 }
-
-// Test connection (optional)
-sequelize.authenticate()
-  .then(() => {
-    console.log('Connection to database has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
 
 module.exports = sequelize;
